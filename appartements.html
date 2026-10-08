@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BIENVENUE CHEZ HAMIDOU - Appartements</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    color: #222;
+}
+
+header {
+    background: #111827;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+header p {
+    margin: 8px 0 0;
+    color: #d1d5db;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.top h2 {
+    margin: 0;
+}
+
+.btn {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 3px;
+}
+
+.btn-add {
+    background: #16a34a;
+    color: white;
+}
+
+.btn-edit {
+    background: #2563eb;
+    color: white;
+}
+
+.btn-delete {
+    background: #dc2626;
+    color: white;
+}
+
+.btn-photo {
+    background: #7c3aed;
+    color: white;
+}
+
+.btn-back {
+    background: #6b7280;
+    color: white;
+}
+
+.table-box {
+    background: white;
+    border-radius: 10px;
+    overflow-x: auto;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #e5e7eb;
+    padding: 14px;
+    text-align: left;
+}
+
+td {
+    padding: 13px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.status {
+    color: #15803d;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    margin: 30px 0;
+    color: #6b7280;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🏠 BIENVENUE CHEZ HAMIDOU</h1>
+    <p>Gestion des appartements</p>
+</header>
+
+<div class="container">
+
+    <div class="top">
+        <h2>📋 Mes appartements</h2>
+
+        <div>
+            <button class="btn btn-add" onclick="ajouterAppartement()">
+                ➕ Ajouter
+            </button>
+
+            <button class="btn btn-back" onclick="window.location.href='dashboard.html'">
+                ⬅️ Tableau de bord
+            </button>
+        </div>
+    </div>
+
+    <div class="table-box">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Appartement</th>
+                    <th>Quartier</th>
+                    <th>Type</th>
+                    <th>Surface</th>
+                    <th>Prix / nuit</th>
+                    <th>État</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>F3 Pépinière</td>
+                    <td>Pépinière</td>
+                    <td>F3</td>
+                    <td>100 m²</td>
+                    <td>16 000 DA</td>
+                    <td class="status">Disponible</td>
+                    <td>
+                        <button class="btn btn-edit" onclick="modifierAppartement('F3 Pépinière')">
+                            ✏️ Modifier
+                        </button>
+                        <button class="btn btn-delete" onclick="supprimerAppartement('F3 Pépinière')">
+                            🗑️ Supprimer
+                        </button>
+                        <button class="btn btn-photo" onclick="photosAppartement('F3 Pépinière')">
+                            📸 Photos
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>F3 Fernand Ville</td>
+                    <td>Fernand Ville</td>
+                    <td>F3</td>
+                    <td>100 m²</td>
+                    <td>16 000 DA</td>
+                    <td class="status">Disponible</td>
+                    <td>
+                        <button class="btn btn-edit" onclick="modifierAppartement('F3 Fernand Ville')">
+                            ✏️ Modifier
+                        </button>
+                        <button class="btn btn-delete" onclick="supprimerAppartement('F3 Fernand Ville')">
+                            🗑️ Supprimer
+                        </button>
+                        <button class="btn btn-photo" onclick="photosAppartement('F3 Fernand Ville')">
+                            📸 Photos
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>F2 Benammar</td>
+                    <td>Pépinière</td>
+                    <td>F2</td>
+                    <td>63 m²</td>
+                    <td>14 000 DA</td>
+                    <td class="status">Disponible</td>
+                    <td>
+                        <button class="btn btn-edit" onclick="modifierAppartement('F2 Benammar')">
+                            ✏️ Modifier
+                        </button>
+                        <button class="btn btn-delete" onclick="supprimerAppartement('F2 Benammar')">
+                            🗑️ Supprimer
+                        </button>
+                        <button class="btn btn-photo" onclick="photosAppartement('F2 Benammar')">
+                            📸 Photos
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>F2 Akid Lotfi</td>
+                    <td>Akid Lotfi</td>
+                    <td>F2</td>
+                    <td>60 m²</td>
+                    <td>13 000 DA</td>
+                    <td class="status">Disponible</td>
+                    <td>
+                        <button class="btn btn-edit" onclick="modifierAppartement('F2 Akid Lotfi')">
+                            ✏️ Modifier
+                        </button>
+                        <button class="btn btn-delete" onclick="supprimerAppartement('F2 Akid Lotfi')">
+                            🗑️ Supprimer
+                        </button>
+                        <button class="btn btn-photo" onclick="photosAppartement('F2 Akid Lotfi')">
+                            📸 Photos
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>F3 Safwa</td>
+                    <td>Bir El Djir</td>
+                    <td>F3</td>
+                    <td>80 m²</td>
+                    <td>15 000 DA</td>
+                    <td class="status">Disponible</td>
+                    <td>
+                        <button class="btn btn-edit" onclick="modifierAppartement('F3 Safwa')">
+                            ✏️ Modifier
+                        </button>
+                        <button class="btn btn-delete" onclick="supprimerAppartement('F3 Safwa')">
+                            🗑️ Supprimer
+                        </button>
+                        <button class="btn btn-photo" onclick="photosAppartement('F3 Safwa')">
+                            📸 Photos
+                        </button>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<footer>
+    BIENVENUE CHEZ HAMIDOU © 2026
+</footer>
+
+<script>
+
+function ajouterAppartement() {
+    alert("La fonction Ajouter sera disponible dans la prochaine étape.");
+}
+
+function modifierAppartement(nom) {
+    alert("Modification de : " + nom + "\n\nCette fonction sera développée ensuite.");
+}
+
+function supprimerAppartement(nom) {
+    if (confirm("Voulez-vous vraiment supprimer " + nom + " ?")) {
+        alert("La suppression sera connectée à la base de données ensuite.");
+    }
+}
+
+function photosAppartement(nom) {
+    alert("Gestion des photos de : " + nom + "\n\nCette fonction sera développée ensuite.");
+}
+
+</script>
+
+</body>
+</html>
