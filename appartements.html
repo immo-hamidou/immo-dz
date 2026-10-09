@@ -303,6 +303,45 @@ footer {
 function ajouterAppartement() {
     document.getElementById("formulaireAppartement").style.display = "block";
 }
+```javascript
+function enregistrerAppartement() {
+    const nom = document.getElementById("nomAppartement").value.trim();
+    const quartier = document.getElementById("quartierAppartement").value.trim();
+    const type = document.getElementById("typeAppartement").value;
+    const surface = document.getElementById("surfaceAppartement").value;
+    const prix = document.getElementById("prixAppartement").value;
+
+    if (!nom || !quartier || !surface || !prix) {
+        alert("Veuillez remplir tous les champs.");
+        return;
+    }
+
+    const tableau = document.querySelector(".table-box tbody");
+
+    if (!tableau) {
+        alert("Impossible de trouver le tableau des appartements.");
+        return;
+    }
+
+    const ligne = tableau.insertRow();
+    ligne.innerHTML = `
+        <td>${nom}</td>
+        <td>${quartier}</td>
+        <td>${type}</td>
+        <td>${surface} m²</td>
+        <td>${Number(prix).toLocaleString("fr-FR")} DA</td>
+        <td>Disponible</td>
+    `;
+
+    document.getElementById("formulaireAppartement").style.display = "none";
+    document.getElementById("nomAppartement").value = "";
+    document.getElementById("quartierAppartement").value = "";
+    document.getElementById("surfaceAppartement").value = "";
+    document.getElementById("prixAppartement").value = "";
+
+    alert("Appartement ajouté au tableau !");
+}
+```
 
 function modifierAppartement(nom) {
     alert("Modification de : " + nom + "\n\nCette fonction sera développée ensuite.");
