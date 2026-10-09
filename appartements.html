@@ -142,7 +142,34 @@ footer {
     </div>
 
     <div class="table-box">
+<div id="formulaireAppartement" style="display:none; background:white; padding:20px; margin-bottom:20px; border-radius:10px;">
 
+    <h2>➕ Ajouter un appartement</h2>
+
+    <label>Nom de l'appartement</label><br>
+    <input id="nomAppartement" type="text" placeholder="Exemple : F2 Oran" required style="width:95%; padding:10px; margin:8px 0;"><br>
+
+    <label>Quartier</label><br>
+    <input id="quartierAppartement" type="text" placeholder="Exemple : Akid Lotfi" required style="width:95%; padding:10px; margin:8px 0;"><br>
+
+    <label>Type</label><br>
+    <select id="typeAppartement" style="width:98%; padding:10px; margin:8px 0;">
+        <option value="F2">F2</option>
+        <option value="F3">F3</option>
+        <option value="F4">F4</option>
+        <option value="Studio">Studio</option>
+    </select><br>
+
+    <label>Surface (m²)</label><br>
+    <input id="surfaceAppartement" type="number" min="1" placeholder="Exemple : 80" required style="width:95%; padding:10px; margin:8px 0;"><br>
+
+    <label>Prix par nuit (DA)</label><br>
+    <input id="prixAppartement" type="number" min="1" placeholder="Exemple : 15000" required style="width:95%; padding:10px; margin:8px 0;"><br><br>
+
+    <button class="btn btn-add" onclick="enregistrerAppartement()">💾 Enregistrer</button>
+    <button class="btn btn-back" onclick="document.getElementById('formulaireAppartement').style.display='none'">Annuler</button>
+
+</div>
         <table>
 
             <thead>
@@ -274,7 +301,7 @@ footer {
 <script>
 
 function ajouterAppartement() {
-    alert("La fonction Ajouter sera disponible dans la prochaine étape.");
+    document.getElementById("formulaireAppartement").style.display = "block";
 }
 
 function modifierAppartement(nom) {
